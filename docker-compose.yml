@@ -10,6 +10,7 @@ services:
     volumes:
       - "./master/conf:/etc/mysql/conf.d"
       - "./master/initdb:/docker-entrypoint-initdb.d"
+      - "./master/datadir:/var/lib/mysql"
     networks:
       mysql:
   slave01:
@@ -22,6 +23,7 @@ services:
     volumes:
       - "./slave01/conf:/etc/mysql/conf.d"
       - "./slave01/initdb:/docker-entrypoint-initdb.d"
+      - "./slave01/datadir:/var/lib/mysql"
     networks:
       mysql:
   slave02:
@@ -34,6 +36,7 @@ services:
     volumes:
       - "./slave02/conf:/etc/mysql/conf.d"
       - "./slave02/initdb:/docker-entrypoint-initdb.d"
+      - "./slave02/datadir:/var/lib/mysql"
     networks:
       mysql:
 
