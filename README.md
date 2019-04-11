@@ -15,19 +15,19 @@ docker-compose up -d
 Access MySQL Master Node
 
 ```
-mysql -u root -h 127.0.0.1 -P 13306
+docker-compose exec master mysql -u root -h master
 ```
 
 Access MySQL Slave01 Node
 
 ```
-mysql -u root -h 127.0.0.1 -P 13316
+docker-compose exec slave01 mysql -u root -h slave01
 ```
 
 Access MySQL Slave02 Node
 
 ```
-mysql -u root -h 127.0.0.1 -P 13326
+docker-compose exec slave02 mysql -u root -h slave02
 ```
 
 ### Replication

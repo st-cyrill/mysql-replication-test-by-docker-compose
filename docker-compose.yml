@@ -2,8 +2,6 @@ version: '3.2'
 services:
   master:
     build: .
-    ports:
-      - "13306:3306"
     container_name: master
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=true
@@ -11,12 +9,8 @@ services:
       - "./master/conf:/etc/mysql/conf.d"
       - "./master/initdb:/docker-entrypoint-initdb.d"
       - "./master/datadir:/var/lib/mysql"
-    networks:
-      mysql:
   slave01:
     build: .
-    ports:
-      - "13316:3306"
     container_name: slave01
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=true
@@ -24,12 +18,8 @@ services:
       - "./slave01/conf:/etc/mysql/conf.d"
       - "./slave01/initdb:/docker-entrypoint-initdb.d"
       - "./slave01/datadir:/var/lib/mysql"
-    networks:
-      mysql:
   slave02:
     build: .
-    ports:
-      - "13326:3306"
     container_name: slave02
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=true
@@ -37,13 +27,4 @@ services:
       - "./slave02/conf:/etc/mysql/conf.d"
       - "./slave02/initdb:/docker-entrypoint-initdb.d"
       - "./slave02/datadir:/var/lib/mysql"
-    networks:
-      mysql:
 
-networks:
-  mysql:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-      - subnet: 172.16.0.0/24

@@ -1,2 +1,2 @@
-GRANT REPLICATION SLAVE ON *.* TO 'repl'@'172.16.0.%' IDENTIFIED BY 'repl';
+GRANT REPLICATION SLAVE ON *.* TO 'repl'@'%' IDENTIFIED BY 'repl';
 flush privileges;
